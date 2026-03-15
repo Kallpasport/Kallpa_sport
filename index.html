@@ -38,56 +38,63 @@ Lo Mejor en Sneakers
 
 <section class="container" id="productos">
 <h2>Zapatillas</h2>
-<a class="btn" href="#hombre">Hombre</a>
-<a class="btn" href="#mujer">Mujer</a>
-</section>
-<section class="container" id="hombre">
-<h2>Zapatillas Hombre</h2>
-<a class="btn" href="#urbano-hombre">Urbano</a>
-<a class="btn" href="#deportivo-hombre">Deportivo</a>
-</section>
-<section class="container" id="urbano-hombre">
-<h2>Urbano Hombre</h2>
-<div class="products">
-<div class="card">
-<img src="urbano1.jpg">
-<h3>Nike Air Force</h3>
-<p>S/450</p>
+<button class="btn" onclick="mostrarHombre()">Hombre</button>
+<button class="btn" onclick="mostrarMujer()">Mujer</button>
+<div id="hombre-opciones" style="display:none;margin-top:20px;">
+<h3>Hombre</h3>
+<button class="btn" onclick="mostrarUrbanoH()">Urbano</button>
+<button class="btn" onclick="mostrarDeportivoH()">Deportivo</button>
 </div>
+<div id="mujer-opciones" style="display:none;margin-top:20px;">
+<h3>Mujer</h3>
+<button class="btn" onclick="mostrarUrbanoM()">Urbano</button>
+<button class="btn" onclick="mostrarDeportivoM()">Deportivo</button>
 </div>
 </section>
-<section class="container" id="deportivo-hombre">
+<section id="deportivo-hombre" class="container" style="display:none">
 <h2>Deportivo Hombre</h2>
 <div class="products">
 <div class="card">
-<img src="deportivo1.jpg">
-<h3>Adidas Running</h3>
-<p>S/420</p>
+<img src="deportivo hombre1.jpg">
 </div>
+<div lass="card">
+<img src="deportivo hombre2.jpg">
 </div>
-</section>
-<section class="container" id="mujer">
-<h2>Zapatillas Mujer</h2>
-<a class="btn" href="#urbano-mujer">Urbano</a>
-<a class="btn" href="#deportivo-mujer">Deportivo</a>
-</section>
-<section class="container" id="urbano-mujer">
-<h2>Urbano Mujer</h2>
-<div class="products">
 <div class="card">
-<img src="urbano-mujer.jpg">
-<h3>Nike Dunk</h3>
-<p>S/430</p>
+<img src="deportivo hombre3.jpg">
+</div>
+<div class="card">
+<img src="deportivo hombre.jpg4">
 </div>
 </div>
 </section>
-<section class="container" id="deportivo-mujer">
+  <section id="deportivo-mujer" class="container" style="display:none">
 <h2>Deportivo Mujer</h2>
 <div class="products">
 <div class="card">
-<img src="deportivo-mujer.jpg">
-<h3>Adidas Training</h3>
-<p>S/410</p>
+<img src="deportivo mujer.jpg1">
+</div>
+<div class="card">
+<img src="deportivo mujer2.jpg">
+</div>
+<div class="card">
+<img src="deportivo mujer3.jpg">
+</div>
+</div>
+</section>
+  <section id="urbano-hombre" class="container" style="display:none">
+<h2>Urbano Hombre</h2>
+<div class="products">
+<div class="card">
+<img src="urbano hombre1.jpg">
+</div>
+</div>
+</section>
+  <section id="urbano-mujer" class="container" style="display:none">
+<h2>Urbano Mujer</h2>
+<div class="products">
+<div class="card">
+<img src="urbano mujer1.jpg">
 </div>
 </div>
 </section>
@@ -106,5 +113,27 @@ Lo Mejor en Sneakers
 style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px 20px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 4px 10px rgba(0,0,0,0.3);">
 WhatsApp
 </a>
+  <script>
+function mostrarHombre(){
+document.getElementById("hombre-opciones").style.display="block";
+document.getElementById("mujer-opciones").style.display="none";
+}
+function mostrarMujer(){
+document.getElementById("mujer-opciones").style.display="block";
+document.getElementById("hombre-opciones").style.display="none";
+}
+function mostrarUrbanoH(){
+document.getElementById("urbano-hombre").style.display="block";
+}
+function mostrarDeportivoH(){
+document.getElementById("deportivo-hombre").style.display="block";
+}
+function mostrarUrbanoM(){
+document.getElementById("urbano-mujer").style.display="block";
+}
+function mostrarDeportivoM(){
+document.getElementById("deportivo-mujer").style.display="block";
+}
+</script>
 </body>
 </html>
