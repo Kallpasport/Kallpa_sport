@@ -42,9 +42,12 @@ Lo Mejor en Sneakers
 </section>
 
 <section class="container" id="productos">
-<h2>Zapatillas</h2>
+<button class="btn" onclick="toggle('menu-zapatillas')">Zapatillas</button>
+<div id="menu-zapatillas" style="display:none;margin-top:20px;">
 <button class="btn" onclick="mostrarHombre()">Hombre</button>
 <button class="btn" onclick="mostrarMujer()">Mujer</button>
+</div>
+<h2>Zapatillas</h2>
 <div id="hombre-opciones" style="display:none;margin-top:20px;">
 <h3>Hombre</h3>
 <button class="btn" onclick="mostrarUrbanoH()">Urbano</button>
@@ -119,6 +122,15 @@ style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padd
 WhatsApp
 </a>
   <script>
+function toggle(id){
+let elemento = document.getElementById(id);
+
+if(elemento.style.display === "block"){
+elemento.style.display = "none";
+}else{
+elemento.style.display = "block";
+}
+}
 function mostrarHombre(){
 document.getElementById("hombre-opciones").style.display="block";
 document.getElementById("mujer-opciones").style.display="none";
