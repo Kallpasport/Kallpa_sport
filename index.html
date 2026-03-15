@@ -28,7 +28,7 @@ footer{background:#111;color:white;text-align:center;padding:20px;margin-top:40p
 
 <nav>
 <a href="#inicio">Inicio</a>
-<a href="#catalogo">Catálogo</a>
+<a href="#catalogo">Zapatillas</a>
 <a href="#contacto">Contacto</a>
 </nav>
 
@@ -39,35 +39,16 @@ Lo Mejor en Sneakers
 <section class="container" id="catalogo">
 <h2 style="text-align:center;">Catálogo de Zapatillas</h2>
 
-<!-- Botones de categorías -->
-<div style="text-align:center;margin-bottom:20px;">
-  <button class="btn" onclick="toggle('cat1')">Zapatillas 1</button>
-  <button class="btn" onclick="toggle('cat2')">Zapatillas 2</button>
-  <button class="btn" onclick="toggle('cat3')">Zapatillas 3</button>
-</div>
-
-<!-- Categoría 1 -->
-<div id="cat1" style="display:none;">
-  <div class="products">
-    <div class="card"><img src="deportivo-hombre1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-    <div class="card"><img src="deportivo-hombre2.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-  </div>
-</div>
-
-<!-- Categoría 2 -->
-<div id="cat2" style="display:none;">
-  <div class="products">
-    <div class="card"><img src="deportivo-mujer1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-    <div class="card"><img src="deportivo-mujer2.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-  </div>
-</div>
-
-<!-- Categoría 3 -->
-<div id="cat3" style="display:none;">
-  <div class="products">
-    <div class="card"><img src="urbano-hombre1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-    <div class="card"><img src="urbano-mujer1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-  </div>
+<div class="products">
+  <div class="card"><img src="deportivo-hombre1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
+  <div class="card"><img src="deportivo-hombre2.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
+  <div class="card"><img src="deportivo-hombre3.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
+  <div class="card"><img src="deportivo-hombre4.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
+  <div class="card"><img src="deportivo-mujer1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
+  <div class="card"><img src="deportivo-mujer2.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
+  <div class="card"><img src="deportivo-mujer3.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
+  <div class="card"><img src="urbano-hombre1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
+  <div class="card"><img src="urbano-mujer1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
 </div>
 
 </section>
@@ -87,17 +68,6 @@ Lo Mejor en Sneakers
 style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px 20px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 4px 10px rgba(0,0,0,0.3);">
 WhatsApp
 </a>
-
-<script>
-function toggle(id){
-  let elemento = document.getElementById(id);
-  if(elemento.style.display === "block"){
-    elemento.style.display = "none";
-  }else{
-    elemento.style.display = "block";
-  }
-}
-</script>
 
 </body>
 </html>
