@@ -5,127 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tienda Kallpa Sport</title>
 <style>
-body{font-family:Arial, sans-serif;margin:0;background:#f5f5f5}
-header{background:#111;color:#fff;padding:20px;text-align:center}
-nav{background:#222;padding:10px;text-align:center}
-nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
-.hero{background:url('tienda.jpg') center/cover;height:400px;display:flex;align-items:center;justify-content:center;color:white;font-size:40px;font-weight:bold}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:20px;}
-.card{background:white;border-radius:10px;padding:15px;text-align:center;box-shadow:0 5px 10px rgba(0,0,0,0.1)}
-.card img{width:100%;height:200px;object-fit:cover;border-radius:10px}
-.btn{display:inline-block;margin-top:10px;padding:10px 20px;background:#000;color:#fff;border-radius:5px;text-decoration:none;cursor:pointer}
-footer{background:#111;color:white;text-align:center;padding:20px;margin-top:40px}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+header {
+  background: #111;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+nav {
+  background: #222;
+  padding: 10px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.hero {
+  background: url('tienda.jpg') center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
 </style>
 </head>
 <body>
-
 <header>
 <img src="logo.jpeg" style="width:150px;">
 <h1>Kallpa Sport</h1>
 <p>Zapatillas, ropa y accesorios originales</p>
 </header>
-
 <nav>
 <a href="#inicio">Inicio</a>
-<a href="#productos">Productos</a>
 <a href="#contacto">Contacto</a>
 </nav>
-
 <section class="hero" id="inicio">
 Lo Mejor en Sneakers
 </section>
-
-<section class="container" id="productos">
-
-<!-- IMAGEN DESTACADA DE ZAPATILLAS -->
-<img src="zapatillas-destacada.jpg" style="width:100%;height:300px;object-fit:cover;border-radius:10px;margin-bottom:20px;">
-
-<!-- BOTÓN ZAPATILLAS -->
-<button class="btn" onclick="toggle('menu-zapatillas')">Zapatillas</button>
-<div id="menu-zapatillas" style="display:none;margin-top:20px;">
-
-  <!-- BOTONES HOMBRE / MUJER -->
-  <button class="btn" onclick="toggle('hombre-opciones')">Hombre</button>
-  <button class="btn" onclick="toggle('mujer-opciones')">Mujer</button>
-
-  <!-- OPCIONES HOMBRE -->
-  <div id="hombre-opciones" style="display:none;margin-top:15px;">
-    <button class="btn" onclick="toggle('urbano-hombre')">Urbano</button>
-    <button class="btn" onclick="toggle('deportivo-hombre')">Deportivo</button>
-  </div>
-
-  <!-- OPCIONES MUJER -->
-  <div id="mujer-opciones" style="display:none;margin-top:15px;">
-    <button class="btn" onclick="toggle('urbano-mujer')">Urbano</button>
-    <button class="btn" onclick="toggle('deportivo-mujer')">Deportivo</button>
-  </div>
-
-</div>
-</section>
-
-<!-- DEPORTIVO HOMBRE -->
-<section id="deportivo-hombre" class="container" style="display:none">
-<h3>Deportivo Hombre</h3>
-<div class="products">
-<div class="card"><img src="deportivo-hombre1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-<div class="card"><img src="deportivo-hombre2.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-<div class="card"><img src="deportivo-hombre3.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-<div class="card"><img src="deportivo-hombre4.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-</div>
-</section>
-
-<!-- DEPORTIVO MUJER -->
-<section id="deportivo-mujer" class="container" style="display:none">
-<h3>Deportivo Mujer</h3>
-<div class="products">
-<div class="card"><img src="deportivo-mujer1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-<div class="card"><img src="deportivo-mujer2.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-<div class="card"><img src="deportivo-mujer3.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-</div>
-</section>
-
-<!-- URBANO HOMBRE -->
-<section id="urbano-hombre" class="container" style="display:none">
-<h3>Urbano Hombre</h3>
-<div class="products">
-<div class="card"><img src="urbano-hombre1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-</div>
-</section>
-
-<!-- URBANO MUJER -->
-<section id="urbano-mujer" class="container" style="display:none">
-<h3>Urbano Mujer</h3>
-<div class="products">
-<div class="card"><img src="urbano-mujer1.jpg"><a class="btn" href="https://wa.me/51903104561">Comprar</a></div>
-</div>
-</section>
-
-<section class="container" id="contacto">
+<section class="container" id="contacto" style="text-align:center; padding:40px;">
 <h2>Contacto</h2>
 <p>WhatsApp: +51 903104561</p>
 <p>Instagram: @kallpas.port.pe</p>
 </section>
-
 <footer>
 <p>© 2026 Kallpa Sport - Todos los derechos reservados</p>
 </footer>
-
-<!-- Botón flotante WhatsApp -->
+<!-- Botón flotante de WhatsApp -->
 <a href="https://wa.me/51903104561" 
 style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px 20px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 4px 10px rgba(0,0,0,0.3);">
 WhatsApp
 </a>
-
-<script>
-function toggle(id){
-  let elemento = document.getElementById(id);
-  if(elemento.style.display === "block"){
-    elemento.style.display = "none";
-  }else{
-    elemento.style.display = "block";
-  }
-}
-</script>
-
 </body>
 </html>
