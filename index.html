@@ -19,15 +19,6 @@ footer{background:#111;color:white;text-align:center;padding:20px;margin-top:40p
 </style>
 </head>
 <body>
-<script>
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', function(e){
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    target.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-</script>
 <header>
 <img src="logo.jpeg" style="width:150px;">
 <h1>Kallpa Sport</h1>
