@@ -16,6 +16,20 @@ nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
 .card img{width:100%;height:200px;object-fit:cover;border-radius:10px}
 .btn{display:inline-block;margin-top:10px;padding:10px 20px;background:#000;color:#fff;border-radius:5px;text-decoration:none;cursor:pointer}
 footer{background:#111;color:white;text-align:center;padding:20px;margin-top:40px}
+  /* Botón volver arriba */
+#topBtn{
+  display:none;
+  position:fixed;
+  bottom:80px;
+  right:20px;
+  background:#000;
+  color:white;
+  padding:10px 15px;
+  border-radius:50px;
+  font-weight:bold;
+  cursor:pointer;
+  z-index:999;
+}
 </style>
 </head>
 <body>
@@ -250,6 +264,24 @@ Lo Mejor en Sneakers
 style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px 20px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 4px 10px rgba(0,0,0,0.3);">
 WhatsApp
 </a>
+<!-- Botón Volver Arriba -->
+<button id="topBtn" onclick="topFunction()">↑ Arriba</button>
 
+<script>
+// Mostrar u ocultar botón "Volver arriba"
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  let topBtn = document.getElementById("topBtn");
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+}
+// Al hacer clic, subir arriba
+function topFunction() {
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
 </body>
 </html>
