@@ -187,6 +187,7 @@ footer {
   <a href="#prendas">Prendas</a>
   <a href="#accesorios">Accesorios</a>
    <a href="#contacto">Contacto</a>
+  <a href="#" id="verCarrito">🛒 (<span id="contador">0</span>)</a>
 </nav>
 <div style="text-align:center; padding:15px;">
   <input 
@@ -504,6 +505,31 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 });
+  <script>
+let carrito = [];
+
+function actualizarCarrito() {
+  document.getElementById("contador").innerText = carrito.length;
+}
+
+document.querySelectorAll('.comprarBtn').forEach(btn => {
+  btn.addEventListener('click', function() {
+
+    let card = this.closest('.card');
+
+    if(card.classList.contains('sold')) return;
+
+    let nombre = card.querySelector('h3').innerText;
+    let precio = card.querySelectorAll('p')[1].innerText;
+
+    carrito.push({nombre, precio});
+
+    actualizarCarrito();
+
+    alert("Producto agregado al carrito 🛒");
+  });
+});
+</script>
 </script>
 </body>
 </html>
