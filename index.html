@@ -146,6 +146,22 @@ footer {
 #whatsappBtn:hover {
   transform: scale(1.1);
 }
+  .sold {
+  position: relative;
+}
+
+.sold::after {
+  content: "VENDIDO";
+  position: absolute;
+  top: 20px;
+  left: -40px;
+  background: red;
+  color: white;
+  padding: 5px 50px;
+  font-weight: bold;
+  transform: rotate(-45deg);
+  font-size: 14px;
+}
 </style>
 </head>
 <body>
@@ -236,7 +252,7 @@ Lo Mejor en Sneakers
     <a class="btn" href="https://wa.me/51903104561">Comprar</a>
   </div>
 
-  <div class="card">
+  <div class="card sold">
     <img src="urbano mujer1.jpg">
     <h3>Zapatillas Puma Rickie</h3>
     <p>Color: blanco/ Talla: 37</p>
