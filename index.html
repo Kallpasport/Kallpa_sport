@@ -530,6 +530,25 @@ document.querySelectorAll('.comprarBtn').forEach(btn => {
   });
 });
 </script>
+  <script>
+document.getElementById("verCarrito").addEventListener("click", function() {
+
+  if(carrito.length === 0){
+    alert("Tu carrito está vacío 🛒");
+    return;
+  }
+
+  let mensaje = "Hola, quiero comprar:\n";
+
+  carrito.forEach((item, index) => {
+    mensaje += `${index+1}. ${item.nombre} - ${item.precio}\n`;
+  });
+
+  let url = "https://wa.me/51903104561?text=" + encodeURIComponent(mensaje);
+
+  window.open(url, '_blank');
+});
+</script>
 </script>
 </body>
 </html>
