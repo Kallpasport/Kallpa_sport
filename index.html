@@ -512,43 +512,100 @@ function actualizarCarrito() {
   document.getElementById("contador").innerText = carrito.length;
 }
 
-document.querySelectorAll('.comprarBtn').forEach(btn => {
-  btn.addEventListener('click', function() {
+<script>
+// ===== BOTÓN SUBIR =====
+window.onscroll = function() {scrollFunction()};
 
-    let card = this.closest('.card');
+function scrollFunction() {
+  let topBtn = document.getElementById("topBtn");
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+}
 
-    if(card.classList.contains('sold')) return;
+function topFunction() {
+  window.scrollTo({top:0, behavior:'smooth'});
+}
 
-    let nombre = card.querySelector('h3').innerText;
-    let precio = card.querySelectorAll('p')[1].innerText;
+// ===== CUANDO CARGA LA WEB =====
+document.addEventListener("DOMContentLoaded", function() {
 
-    carrito.push({nombre, precio});
+  // ===== BUSCADOR =====
+  document.getElementById("buscador").addEventListener("keyup", function() {
 
-    actualizarCarrito();
+    let filtro = this.value.toLowerCase();
+    let productos = document.querySelectorAll(".card");
 
-    alert("Producto agregado al carrito 🛒");
+    productos.forEach(card => {
+      let texto = card.innerText.toLowerCase();
+
+      if(texto.includes(filtro)){
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
+    });
+
   });
-});
-</script>
-  <script>
-document.getElementById("verCarrito").addEventListener("click", function() {
 
-  if(carrito.length === 0){
-    alert("Tu carrito está vacío 🛒");
-    return;
+  // ===== CARRITO =====
+  let carrito = [];
+
+  function actualizarCarrito() {
+    document.getElementById("contador").innerText = carrito.length;
   }
 
-  let mensaje = "Hola, quiero comprar:\n";
+  // ===== BOTONES COMPRAR =====
+  document.querySelectorAll('.comprarBtn').forEach(btn => {
+    btn.addEventListener('click', function() {
 
-  carrito.forEach((item, index) => {
-    mensaje += `${index+1}. ${item.nombre} - ${item.precio}\n`;
+      let card = this.closest('.card');
+
+      if(card.classList.contains('sold')) return;
+
+      let nombre = card.querySelector('h3').innerText;
+      let detalles = card.querySelectorAll('p');
+
+      let info = "";
+      detalles.forEach(p => {
+        info += p.innerText + " ";
+      });
+
+      // AGREGAR AL CARRITO
+      let precio = detalles[1].innerText;
+      carrito.push({nombre, precio});
+      actualizarCarrito();
+
+      // ENVIAR A WHATSAPP
+      let mensaje = `Hola, quiero comprar: ${nombre} - ${info}`;
+      let url = "https://wa.me/51903104561?text=" + encodeURIComponent(mensaje);
+
+      window.open(url, '_blank');
+    });
   });
 
-  let url = "https://wa.me/51903104561?text=" + encodeURIComponent(mensaje);
+  // ===== VER CARRITO =====
+  document.getElementById("verCarrito").addEventListener("click", function() {
 
-  window.open(url, '_blank');
+    if(carrito.length === 0){
+      alert("Tu carrito está vacío 🛒");
+      return;
+    }
+
+    let mensaje = "Hola, quiero comprar:\n";
+
+    carrito.forEach((item, index) => {
+      mensaje += `${index+1}. ${item.nombre} - ${item.precio}\n`;
+    });
+
+    let url = "https://wa.me/51903104561?text=" + encodeURIComponent(mensaje);
+
+    window.open(url, '_blank');
+  });
+
 });
-</script>
 </script>
 </body>
 </html>
