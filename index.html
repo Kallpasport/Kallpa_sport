@@ -457,14 +457,12 @@ function scrollFunction() {
 function topFunction() {
   window.scrollTo({top:0, behavior:'smooth'});
 }
-</script>
 <script>
 document.querySelectorAll('.comprarBtn').forEach(btn => {
   btn.addEventListener('click', function() {
     
     let card = this.closest('.card');
 
-    // 🚫 Si está agotado, no hace nada
     if(card.classList.contains('sold')) return;
 
     let nombre = card.querySelector('h3').innerText;
@@ -482,6 +480,8 @@ document.querySelectorAll('.comprarBtn').forEach(btn => {
     window.open(url, '_blank');
   });
 });
+</script>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
