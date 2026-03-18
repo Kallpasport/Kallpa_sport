@@ -444,110 +444,32 @@ WhatsApp
 <button id="topBtn" onclick="topFunction()">↑ Arriba</button>
 
 <script>
-// Mostrar u ocultar botón "Volver arriba"
-window.onscroll = function() {scrollFunction()};
-function scrollFunction() {
-  let topBtn = document.getElementById("topBtn");
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    topBtn.style.display = "block";
-  } else {
-    topBtn.style.display = "none";
-  }
-}
-
-// Al hacer clic, subir arriba
-function topFunction() {
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-</script>
-document.querySelectorAll('.comprarBtn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    
-    let card = this.closest('.card');
-
-    if(card.classList.contains('sold')) return;
-
-    let nombre = card.querySelector('h3').innerText;
-    let detalles = card.querySelectorAll('p');
-    
-    let info = "";
-    detalles.forEach(p => {
-      info += p.innerText + " ";
-    });
-
-    let mensaje = `Hola, quiero comprar: ${nombre} - ${info}`;
-    
-    let url = "https://wa.me/51903104561?text=" + encodeURIComponent(mensaje);
-    
-    window.open(url, '_blank');
-  });
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-
-  document.getElementById("buscador").addEventListener("keyup", function() {
-
-    let filtro = this.value.toLowerCase();
-    let productos = document.querySelectorAll(".card");
-
-    productos.forEach(card => {
-      let texto = card.innerText.toLowerCase();
-
-      if(texto.includes(filtro)){
-        card.style.display = "";
-      } else {
-        card.style.display = "none";
-      }
-    });
-
-  });
-
-});
-  <script>
-let carrito = [];
-
-function actualizarCarrito() {
-  document.getElementById("contador").innerText = carrito.length;
-}
-
-<script>
 // ===== BOTÓN SUBIR =====
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
+window.onscroll = function() {
   let topBtn = document.getElementById("topBtn");
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+  if (document.documentElement.scrollTop > 300) {
     topBtn.style.display = "block";
   } else {
     topBtn.style.display = "none";
   }
-}
+};
 
 function topFunction() {
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
-// ===== CUANDO CARGA LA WEB =====
+// ===== CUANDO CARGA TODO =====
 document.addEventListener("DOMContentLoaded", function() {
 
   // ===== BUSCADOR =====
   document.getElementById("buscador").addEventListener("keyup", function() {
-
     let filtro = this.value.toLowerCase();
     let productos = document.querySelectorAll(".card");
 
     productos.forEach(card => {
       let texto = card.innerText.toLowerCase();
-
-      if(texto.includes(filtro)){
-        card.style.display = "";
-      } else {
-        card.style.display = "none";
-      }
+      card.style.display = texto.includes(filtro) ? "" : "none";
     });
-
   });
 
   // ===== CARRITO =====
@@ -562,24 +484,19 @@ document.addEventListener("DOMContentLoaded", function() {
     btn.addEventListener('click', function() {
 
       let card = this.closest('.card');
-
       if(card.classList.contains('sold')) return;
 
       let nombre = card.querySelector('h3').innerText;
       let detalles = card.querySelectorAll('p');
 
-      let info = "";
-      detalles.forEach(p => {
-        info += p.innerText + " ";
-      });
-
-      // AGREGAR AL CARRITO
       let precio = detalles[1].innerText;
+
+      // GUARDAR EN CARRITO
       carrito.push({nombre, precio});
       actualizarCarrito();
 
-      // ENVIAR A WHATSAPP
-      let mensaje = `Hola, quiero comprar: ${nombre} - ${info}`;
+      // MENSAJE WHATSAPP
+      let mensaje = `Hola, quiero comprar: ${nombre} - ${precio}`;
       let url = "https://wa.me/51903104561?text=" + encodeURIComponent(mensaje);
 
       window.open(url, '_blank');
@@ -601,7 +518,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     let url = "https://wa.me/51903104561?text=" + encodeURIComponent(mensaje);
-
     window.open(url, '_blank');
   });
 
