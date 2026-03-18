@@ -374,48 +374,48 @@ footer {
       <h3>Gorra New era YANKEES</h3>
       <p>Color: Negro / cooperstown collection / talla 7 3/8 58.7cm</p>
       <p>Precio: S/ 100</p>
-     <a class="btn comprarBtn">Comprar</a>
-      <a class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
+     <a href="#"class="btn comprarBtn">Comprar</a>
+      <a href="#"class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
     </div>
     <div class="card">
       <img src="articulo2.jpg">
       <h3>Gorra New era </h3>
       <p>Color: Negro / talla 7 1/2 / 59.6cm</p>
       <p>Precio: S/ 100</p>
-    <a class="btn comprarBtn">Comprar</a>
-      <a class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
+    <a href="#"class="btn comprarBtn">Comprar</a>
+      <a href="#"class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
     </div>
     <div class="card">
       <img src="articulo3.jpg">
       <h3>Gorra New era</h3>
       <p>Color: Marrón / 7 3/8 / 58.7cm</p>
       <p>Precio: S/ 100</p>
-      <a class="btn comprarBtn">Comprar</a>
-      <a class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
+      <a href="#"class="btn comprarBtn">Comprar</a>
+      <a href="#"class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
     </div>
     <div class="card">
       <img src="articulo4.jpg">
       <h3>Mochila Herschel</h3>
       <p>Unisex / Diseño clásico</p>
       <p>Precio: S/ 150</p>
-     <a class="btn comprarBtn">Comprar</a>
-      <a class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
+     <a href="#"class="btn comprarBtn">Comprar</a>
+      <a href="#"class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
     </div>
     <div class="card">
       <img src="articulo5.jpg">
       <h3>Rodillera deportiva</h3>
       <p>Unisex / Talla M / En color Blanco y Negro</p>
       <p>Precio: S/ 30</p>
-      <a class="btn comprarBtn">Comprar</a>
-      <a class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
+      <a href="#"class="btn comprarBtn">Comprar</a>
+      <a href="#"class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
     </div>
     <div class="card">
       <img src="articulo6.jpg">
       <h3>Tobillera deportiva</h3>
       <p>Color: Negro / Talla M / Ajustable</p>
       <p>Precio: S/ 12</p>
-     <a class="btn comprarBtn">Comprar</a>
-      <a class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
+     <a href="#"class="btn comprarBtn">Comprar</a>
+      <a href="#"class="btn agregarBtn" style="background:#25D366;">Añadir al carrito</a>
     </div>
   </div>
 </section>
@@ -542,35 +542,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // 🛒 AÑADIR AL CARRITO
   document.querySelectorAll('.agregarBtn').forEach(btn => {
-    btn.addEventListener('click', function() {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault(); // <--- IMPORTANTE
+    let card = this.closest('.card');
+    if(card.classList.contains('sold')) return;
 
-      let card = this.closest('.card');
-      if(card.classList.contains('sold')) return;
+    let nombre = card.querySelector('h3').innerText;
+    let precio = card.querySelectorAll('p')[1].innerText;
 
-      let nombre = card.querySelector('h3').innerText;
-      let precio = card.querySelectorAll('p')[1].innerText;
+    carrito.push({nombre, precio});
+    actualizarCarrito();
 
-      carrito.push({nombre, precio});
-      actualizarCarrito();
-
-      alert("Añadido al carrito 🛒");
-    });
+    alert("Añadido al carrito 🛒");
   });
+});
 
-  // 📲 COMPRAR DIRECTO (SIN GUARDAR)
-  document.querySelectorAll('.comprarBtn').forEach(btn => {
-    btn.addEventListener('click', function() {
+document.querySelectorAll('.comprarBtn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault(); // <--- IMPORTANTE
+    let card = this.closest('.card');
+    if(card.classList.contains('sold')) return;
 
-      let card = this.closest('.card');
-      if(card.classList.contains('sold')) return;
+    let nombre = card.querySelector('h3').innerText;
+    let precio = card.querySelectorAll('p')[1].innerText;
 
-      let nombre = card.querySelector('h3').innerText;
-      let precio = card.querySelectorAll('p')[1].innerText;
-
-      let mensaje = `Hola, quiero comprar: ${nombre} - ${precio}`;
-      window.open("https://wa.me/51903104561?text=" + encodeURIComponent(mensaje));
-    });
+    let mensaje = `Hola, quiero comprar: ${nombre} - ${precio}`;
+    window.open("https://wa.me/51903104561?text=" + encodeURIComponent(mensaje));
   });
+});
 
   // 🪟 ABRIR CARRITO (YA NO WHATSAPP)
   document.getElementById("verCarrito").addEventListener("click", function() {
