@@ -515,7 +515,8 @@ function renderCarrito() {
     li.style.marginBottom = "10px";
 
     // sacar número del precio
-    let precioNumero = parseFloat(item.precio.replace("S/","").trim());
+    let precioNumero = parseFloat(item.precio.replace("S/", "").replace(",", "").trim()) || 0;
+    console.log(precioNumero);
     total += precioNumero;
 
     li.innerHTML = `
