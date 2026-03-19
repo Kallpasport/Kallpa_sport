@@ -517,9 +517,20 @@ function renderCarrito() {
 
     let li = document.createElement("li");
     li.innerHTML = `
-      ${item.nombre} - ${item.precio}
-      <button onclick="eliminar(${index})">❌</button>
-    `;
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+    
+    <img src="${item.imagen}" 
+         style="width:50px; height:50px; object-fit:cover; border-radius:5px;">
+    
+    <div style="flex:1;">
+      <strong>${item.nombre}</strong><br>
+      ${item.precio}
+    </div>
+
+    <button onclick="eliminar(${index})">❌</button>
+
+  </div>
+`;
 
     lista.appendChild(li);
   });
