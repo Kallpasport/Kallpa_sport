@@ -511,23 +511,13 @@ function renderCarrito() {
   let total = 0;
 
   carrito.forEach((item, index) => {
+
+    let precioNumero = parseFloat(item.precio.replace("S/", "").trim());
+    total += precioNumero;
+
     let li = document.createElement("li");
-    li.style.display = "flex";
-    li.style.alignItems = "center";
-    li.style.marginBottom = "10px";
-
-    // sacar número del precio
-let precioTexto = card.querySelectorAll('p')[1].innerText;
-let precio = precioTexto.replace("Precio:", "").trim();
-let imagen = card.querySelector('img').src;
-
-carrito.push({nombre, precio, imagen});
     li.innerHTML = `
-      <img src="${item.imagen}" style="width:50px;height:50px;border-radius:5px;margin-right:10px;">
-      <div style="flex:1;">
-        <strong>${item.nombre}</strong><br>
-        ${item.precio}
-      </div>
+      ${item.nombre} - ${item.precio}
       <button onclick="eliminar(${index})">❌</button>
     `;
 
@@ -536,7 +526,6 @@ carrito.push({nombre, precio, imagen});
 
   totalElemento.innerText = "Total: S/ " + total;
 }
-
   window.eliminar = function(index) {
     carrito.splice(index, 1);
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -578,7 +567,7 @@ document.querySelectorAll('.agregarBtn').forEach(btn => {
 
     let nombre = card.querySelector('h3').innerText;
     let precioTexto = card.querySelectorAll('p')[1].innerText;
-   let precioNumero = parseFloat(item.precio.replace("S/", "").replace(",", ".").trim()) || 0;
+    let precio = precioTexto.replace("Precio:", "").trim();
     let imagen = card.querySelector('img').src;
 
     carrito.push({nombre, precio, imagen});
