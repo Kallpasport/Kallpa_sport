@@ -495,8 +495,10 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // ===== CARRITO =====
-  let carrito = [];
+ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+actualizarCarrito();
+renderCarrito();
   function actualizarCarrito() {
     document.getElementById("contador").innerText = carrito.length;
   }
@@ -536,6 +538,7 @@ function renderCarrito() {
 
   window.eliminar = function(index) {
     carrito.splice(index, 1);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     actualizarCarrito();
     renderCarrito();
   }
@@ -546,9 +549,10 @@ function renderCarrito() {
       return;
     }
 
-    let mensaje = "Hola, quiero comprar:\n";
+    let mensaje = "Hola Kallpa Sport 👋, quiero comprar:\n\n";
     carrito.forEach((item, i) => {
       mensaje += `${i+1}. ${item.nombre} - ${item.precio}\n`;
+      mensaje += `\nTotal: S/ ${total}`;
     });
 
     window.open("https://wa.me/51903104561?text=" + encodeURIComponent(mensaje));
@@ -571,6 +575,7 @@ document.querySelectorAll('.agregarBtn').forEach(btn => {
     let imagen = card.querySelector('img').src;
 
     carrito.push({nombre, precio, imagen});
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     actualizarCarrito();
     renderCarrito();
 
