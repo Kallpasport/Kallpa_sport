@@ -558,8 +558,8 @@ function renderCarrito() {
     document.getElementById("carritoModal").style.display = "none";
   }
 
-  // 🛒 AÑADIR AL CARRITO
- document.querySelectorAll('.agregarBtn').forEach(btn => {
+ // 🛒 AÑADIR AL CARRITO
+document.querySelectorAll('.agregarBtn').forEach(btn => {
   btn.addEventListener('click', function(e) {
     e.preventDefault();
     let card = this.closest('.card');
@@ -577,9 +577,11 @@ function renderCarrito() {
     alert("Añadido al carrito 🛒");
   });
 }); // 
+
+// 🛍️ COMPRAR DIRECTO
 document.querySelectorAll('.comprarBtn').forEach(btn => {
   btn.addEventListener('click', function(e) {
-    e.preventDefault(); // <--- IMPORTANTE
+    e.preventDefault();
     let card = this.closest('.card');
     if(card.classList.contains('sold')) return;
 
