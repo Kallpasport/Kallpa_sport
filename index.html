@@ -566,8 +566,9 @@ function renderCarrito() {
 
     let nombre = card.querySelector('h3').innerText;
     let precio = card.querySelectorAll('p')[1].innerText;
+    let imagen = card.querySelector('img').src;
 
-    carrito.push({nombre, precio});
+    carrito.push({nombre, precio, imagen});
     actualizarCarrito();
 
     alert("Añadido al carrito 🛒");
