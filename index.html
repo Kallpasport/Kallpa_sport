@@ -567,7 +567,7 @@ document.querySelectorAll('.agregarBtn').forEach(btn => {
 
     let nombre = card.querySelector('h3').innerText;
     let precioTexto = card.querySelectorAll('p')[1].innerText;
-    let precio = precioTexto.replace("Precio:", "").trim();
+   let precioNumero = parseFloat(item.precio.replace("S/", "").replace(",", ".").trim()) || 0;
     let imagen = card.querySelector('img').src;
 
     carrito.push({nombre, precio, imagen});
