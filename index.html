@@ -169,37 +169,6 @@ footer {
   background: gray;
   cursor: not-allowed;
 }
-  /* ===== RESPONSIVE CELULAR ===== */
-@media (max-width: 600px) {
-
-  .hero {
-    font-size: 24px;
-    height: 250px;
-    text-align: center;
-    padding: 10px;
-  }
-
-  nav a {
-    display: block;
-    margin: 10px 0;
-  }
-
-  .container {
-    padding: 20px;
-  }
-
-  .products {
-    grid-template-columns: 1fr;
-  }
-
-  .card img {
-    height: 180px;
-  }
-
-  #buscador {
-    width: 90% !important;
-  }
-}
 </style>
 </head>
 <body>
@@ -532,28 +501,20 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("contador").innerText = carrito.length;
   }
 
-function renderCarrito() {
-  let lista = document.getElementById("listaCarrito");
-  lista.innerHTML = "";
+  function renderCarrito() {
+    let lista = document.getElementById("listaCarrito");
+    lista.innerHTML = "";
 
-  carrito.forEach((item, index) => {
-    let li = document.createElement("li");
-    li.style.display = "flex";
-    li.style.alignItems = "center";
-    li.style.marginBottom = "10px";
-
-    li.innerHTML = `
-      <img src="${item.imagen}" style="width:50px;height:50px;border-radius:5px;margin-right:10px;">
-      <div style="flex:1;">
-        <strong>${item.nombre}</strong><br>
-        ${item.precio}
-      </div>
-      <button onclick="eliminar(${index})">❌</button>
-    `;
-
-    lista.appendChild(li);
-  });
-}
+    carrito.forEach((item, index) => {
+      let li = document.createElement("li");
+      li.innerHTML = `
+        ${item.nombre} - ${item.precio}
+        <button onclick="eliminar(${index})">❌</button>
+      `;
+      lista.appendChild(li);
+    });
+    
+  }
 
   window.eliminar = function(index) {
     carrito.splice(index, 1);
@@ -586,11 +547,9 @@ function renderCarrito() {
     let card = this.closest('.card');
     if(card.classList.contains('sold')) return;
 
- let nombre = card.querySelector('h3').innerText;
-let precio = card.querySelectorAll('p')[1].innerText;
-let imagen = card.querySelector('img').src;
+    let nombre = card.querySelector('h3').innerText;
+    let precio = card.querySelectorAll('p')[1].innerText;
 
-carrito.push({nombre, precio, imagen});
     carrito.push({nombre, precio});
     actualizarCarrito();
 
