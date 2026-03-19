@@ -515,7 +515,7 @@ function renderCarrito() {
     li.style.marginBottom = "10px";
 
     // sacar número del precio
-    let precioNumero = parseFloat(item.precio.replace("S/", "").replace(",", "").trim()) || 0;
+  let precioNumero = parseFloat(item.precio.replace("S/", "").trim());
     console.log(precioNumero);
     total += precioNumero;
 
@@ -569,7 +569,7 @@ function renderCarrito() {
     let precio = card.querySelectorAll('p')[1].innerText;
     let imagen = card.querySelector('img').src;
 
-    carrito.push({nombre, precio, imagen});
+   carrito.push({nombre, precio, imagen});
     actualizarCarrito();
 
     alert("Añadido al carrito 🛒");
@@ -583,7 +583,8 @@ document.querySelectorAll('.comprarBtn').forEach(btn => {
     if(card.classList.contains('sold')) return;
 
     let nombre = card.querySelector('h3').innerText;
-    let precio = card.querySelectorAll('p')[1].innerText;
+    let precioTexto = card.querySelectorAll('p')[1].innerText;
+    let precio = precioTexto.replace("Precio:", "").trim();
 
     let mensaje = `Hola, quiero comprar: ${nombre} - ${precio}`;
     window.open("https://wa.me/51903104561?text=" + encodeURIComponent(mensaje));
