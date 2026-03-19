@@ -560,20 +560,21 @@ function renderCarrito() {
 
   // 🛒 AÑADIR AL CARRITO
   document.querySelectorAll('.agregarBtn').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    e.preventDefault(); // <--- IMPORTANTE
-    let card = this.closest('.card');
-    if(card.classList.contains('sold')) return;
+ btn.addEventListener('click', function(e) {
+  e.preventDefault();
+  let card = this.closest('.card');
+  if(card.classList.contains('sold')) return;
 
-    let nombre = card.querySelector('h3').innerText;
-    let precio = card.querySelectorAll('p')[1].innerText;
-    let imagen = card.querySelector('img').src;
+  let nombre = card.querySelector('h3').innerText;
+  let precioTexto = card.querySelectorAll('p')[1].innerText;
+  let precio = precioTexto.replace("Precio:", "").trim();
+  let imagen = card.querySelector('img').src;
 
-   carrito.push({nombre, precio, imagen});
-    actualizarCarrito();
+  carrito.push({nombre, precio, imagen});
+  actualizarCarrito();
+  renderCarrito(); // 🔥 ESTA LÍNEA FALTABA
 
-    alert("Añadido al carrito 🛒");
-  });
+  alert("Añadido al carrito 🛒");
 });
 
 document.querySelectorAll('.comprarBtn').forEach(btn => {
