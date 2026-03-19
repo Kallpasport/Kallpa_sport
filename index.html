@@ -517,10 +517,11 @@ function renderCarrito() {
     li.style.marginBottom = "10px";
 
     // sacar número del precio
- let precioTexto = card.querySelectorAll('p')[1].innerText;
+let precioTexto = card.querySelectorAll('p')[1].innerText;
 let precio = precioTexto.replace("Precio:", "").trim();
-    total += precioNumero;
+let imagen = card.querySelector('img').src;
 
+carrito.push({nombre, precio, imagen});
     li.innerHTML = `
       <img src="${item.imagen}" style="width:50px;height:50px;border-radius:5px;margin-right:10px;">
       <div style="flex:1;">
@@ -543,7 +544,7 @@ let precio = precioTexto.replace("Precio:", "").trim();
     renderCarrito();
   }
 
-  window.comprarTodo = function() {
+window.comprarTodo = function() {
   if(carrito.length === 0){
     alert("Carrito vacío 🛒");
     return;
