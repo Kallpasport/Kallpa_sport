@@ -517,8 +517,8 @@ function renderCarrito() {
     li.style.marginBottom = "10px";
 
     // sacar número del precio
-  let precioNumero = parseFloat(item.precio.replace("S/", "").trim());
-    console.log(precioNumero);
+ let precioTexto = card.querySelectorAll('p')[1].innerText;
+let precio = precioTexto.replace("Precio:", "").trim();
     total += precioNumero;
 
     li.innerHTML = `
@@ -544,19 +544,25 @@ function renderCarrito() {
   }
 
   window.comprarTodo = function() {
-    if(carrito.length === 0){
-      alert("Carrito vacío 🛒");
-      return;
-    }
-
-    let mensaje = "Hola Kallpa Sport 👋, quiero comprar:\n\n";
-    carrito.forEach((item, i) => {
-      mensaje += `${i+1}. ${item.nombre} - ${item.precio}\n`;
-      mensaje += `\nTotal: S/ ${total}`;
-    });
-
-    window.open("https://wa.me/51903104561?text=" + encodeURIComponent(mensaje));
+  if(carrito.length === 0){
+    alert("Carrito vacío 🛒");
+    return;
   }
+
+  let mensaje = "Hola Kallpa Sport 👋, quiero comprar:\n\n";
+  let total = 0;
+
+  carrito.forEach((item, i) => {
+    mensaje += `${i+1}. ${item.nombre} - ${item.precio}\n`;
+
+    let precioNumero = parseFloat(item.precio.replace("S/", "").trim());
+    total += precioNumero;
+  });
+
+  mensaje += `\nTotal: S/ ${total}`;
+
+  window.open("https://wa.me/51903104561?text=" + encodeURIComponent(mensaje));
+}
 
   window.cerrarCarrito = function() {
     document.getElementById("carritoModal").style.display = "none";
