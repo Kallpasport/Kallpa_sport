@@ -65,13 +65,18 @@ nav a:hover {
 
 .card {
   background: white;
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 15px;
   text-align: center;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
 }
 
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+  
 .card img {
   width: 100%;
   height: 200px;
@@ -187,15 +192,17 @@ footer {
 </style>
 </head>
 <body>
-<header>
-<img src="logo.jpeg" style="width:150px;">
-<h1>Kallpa Sport</h1>
-<p style="color:lightgray;">
-✔ Productos originales | 🚚 Entregas rápidas | 💬 Atención por WhatsApp
-</p>
-<p>Zapatillas, ropa y accesorios originales</p>
+  <div style="background:#25D366; color:white; text-align:center; padding:6px; font-size:14px;">
+🚀 Envíos rápidos en Lima | 💬 Atención inmediata por WhatsApp | 🔒 Compra segura
+</div>
+<header style="background:#111; color:#fff; padding:25px; text-align:center;">
+  <img src="logo.jpeg" style="width:130px;">
+  <h1 style="letter-spacing:3px; margin:10px 0;">KALLPA SPORT</h1>
+  
+  <p style="color:#aaa; font-size:14px;">
+  ✔ Productos 100% originales | 🚚 Entregas rápidas | 💬 Atención directa
+  </p>
 </header>
-
 <nav>
   <a href="#inicio">Inicio</a>
   <a href="#catalogo">Zapatillas</a>
@@ -213,10 +220,13 @@ footer {
     
 </div>
 <section class="hero" id="inicio">
-🔥 KALLPA SPORT 🔥
-  <p style="font-size:18px; font-weight:normal;">
-Calidad original. Estilo auténtico. Entrega inmediata 🚀
-</p>
+  <div style="text-align:center;">
+    <h2 style="font-size:36px; margin:0;">🔥 ESTILO ORIGINAL 🔥</h2>
+    <p style="font-size:18px; font-weight:normal;">
+    Zapatillas y ropa auténtica para destacar ⚡
+    </p>
+    <a href="#catalogo" class="btn" style="margin-top:15px;">Ver catálogo</a>
+  </div>
 </section>
   
 <section class="container" id="catalogo">
