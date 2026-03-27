@@ -86,13 +86,13 @@ nav a:hover {
 .btn {
   display: inline-block;
   margin-top: 10px;
-  padding: 12px 18px;
-  background: #000;
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #000, #333);
   color: #fff;
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   font-weight: bold;
 }
 
@@ -181,6 +181,42 @@ footer {
   background: white;
   padding: 10px;
 }
+}
+  /* ===== RESPONSIVE PRO (CELULAR) ===== */
+@media (max-width: 600px) {
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .hero {
+    height: 250px;
+    font-size: 22px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  #buscador {
+    width: 90% !important;
+  }
+
 }
 </style>
 </head>
