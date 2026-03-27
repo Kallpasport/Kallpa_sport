@@ -185,6 +185,20 @@ footer {
 </style>
 </head>
 <body>
+<div id="loader" style="
+position:fixed;
+width:100%;
+height:100%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+font-size:20px;
+font-weight:bold;
+">
+Cargando Kallpa Sport...
+</div>
   <div style="background:#25D366; color:white; text-align:center; padding:6px; font-size:14px;">
 🚀 Envíos rápidos en Lima | 💬 Atención inmediata por WhatsApp | 🔒 Compra segura
 </div>
@@ -520,6 +534,12 @@ footer {
 <p>Tik tok: @Kallpa Sport Oficial</p>
 </section>
 
+  <section class="container" style="text-align:center;">
+  <h2>¿Listo para comprar?</h2>
+  <p>Escríbenos ahora y asegura tu producto antes que se agote 🔥</p>
+  <a href="https://wa.me/51903104561" class="btn">💬 Comprar ahora</a>
+</section>
+  
 <footer>
   <section class="container" style="text-align:center;">
   <h2>Opiniones de clientes</h2>
@@ -555,6 +575,7 @@ WhatsApp
 <button id="topBtn" onclick="topFunction()">↑ Arriba</button>
 
 <script>
+
 // ===== BOTÓN SUBIR =====
 window.onscroll = function() {
   let topBtn = document.getElementById("topBtn");
@@ -568,6 +589,14 @@ window.onscroll = function() {
 function topFunction() {
   window.scrollTo({top:0, behavior:'smooth'});
 }
+
+// ===== LOADER (pantalla de carga) =====
+window.onload = function() {
+  let loader = document.getElementById("loader");
+  if(loader){
+    loader.style.display = "none";
+  }
+};
 
 // ===== CUANDO CARGA TODO =====
 document.addEventListener("DOMContentLoaded", function() {
@@ -584,48 +613,50 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // ===== CARRITO =====
- let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-actualizarCarrito();
-renderCarrito();
+  actualizarCarrito();
+  renderCarrito();
+
   function actualizarCarrito() {
     document.getElementById("contador").innerText = carrito.length;
   }
 
-function renderCarrito() {
-  let lista = document.getElementById("listaCarrito");
-  let totalElemento = document.getElementById("totalCarrito");
+  function renderCarrito() {
+    let lista = document.getElementById("listaCarrito");
+    let totalElemento = document.getElementById("totalCarrito");
 
-  lista.innerHTML = "";
-  let total = 0;
+    lista.innerHTML = "";
+    let total = 0;
 
-  carrito.forEach((item, index) => {
+    carrito.forEach((item, index) => {
 
-    let precioNumero = parseFloat(item.precio.replace("S/", "").trim());
-    total += precioNumero;
+      let precioNumero = parseFloat(item.precio.replace("S/", "").trim());
+      total += precioNumero;
 
-    let li = document.createElement("li");
-    li.innerHTML = `
-  <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-    
-    <img src="${item.imagen}" 
-         style="width:50px; height:50px; object-fit:cover; border-radius:5px;">
-    
-    <div style="flex:1;">
-      <strong>${item.nombre}</strong><br>
-      ${item.precio}
-    </div>
+      let li = document.createElement("li");
+      li.innerHTML = `
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+          
+          <img src="${item.imagen}" 
+               style="width:50px; height:50px; object-fit:cover; border-radius:5px;">
+          
+          <div style="flex:1;">
+            <strong>${item.nombre}</strong><br>
+            ${item.precio}
+          </div>
 
-    <button onclick="eliminar(${index})">❌</button>
+          <button onclick="eliminar(${index})">❌</button>
 
-  </div>
-`;
+        </div>
+      `;
 
-    lista.appendChild(li);
-  });
+      lista.appendChild(li);
+    });
 
-  totalElemento.innerText = "Total: S/ " + total;
-}
+    totalElemento.innerText = "Total: S/ " + total;
+  }
+
   window.eliminar = function(index) {
     carrito.splice(index, 1);
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -633,76 +664,86 @@ function renderCarrito() {
     renderCarrito();
   }
 
-window.comprarTodo = function() {
-  if(carrito.length === 0){
-    alert("Carrito vacío 🛒");
-    return;
+  window.comprarTodo = function() {
+    if(carrito.length === 0){
+      alert("Carrito vacío 🛒");
+      return;
+    }
+
+    let mensaje = "Hola Kallpa Sport 👋,\n\nQuiero comprar:\n\n";
+    let total = 0;
+
+    carrito.forEach((item, i) => {
+      mensaje += `${i+1}. ${item.nombre} - ${item.precio}\n`;
+
+      let precioNumero = parseFloat(item.precio.replace("S/", "").trim());
+      total += precioNumero;
+    });
+
+    mensaje += `\nTotal: S/ ${total}`;
+
+    window.open("https://wa.me/51903104561?text=" + encodeURIComponent(mensaje));
   }
-
-  let mensaje = "Hola Kallpa Sport 👋, quiero comprar:\n\n";
-  let total = 0;
-
-  carrito.forEach((item, i) => {
-    mensaje += `${i+1}. ${item.nombre} - ${item.precio}\n`;
-
-    let precioNumero = parseFloat(item.precio.replace("S/", "").trim());
-    total += precioNumero;
-  });
-
-  mensaje += `\nTotal: S/ ${total}`;
-
-  window.open("https://wa.me/51903104561?text=" + encodeURIComponent(mensaje));
-}
 
   window.cerrarCarrito = function() {
     document.getElementById("carritoModal").style.display = "none";
   }
 
- // 🛒 AÑADIR AL CARRITO
-document.querySelectorAll('.agregarBtn').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    let card = this.closest('.card');
-    if(card.classList.contains('sold')) return;
+  // 🛒 AÑADIR AL CARRITO
+  document.querySelectorAll('.agregarBtn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      let card = this.closest('.card');
+      if(card.classList.contains('sold')) return;
 
-    let nombre = card.querySelector('h3').innerText;
-    let precioTexto = card.querySelector('p:last-of-type').innerText;
-    let precio = precioTexto.replace("Precio:", "").trim();
-    let imagen = card.querySelector('img').src;
+      let nombre = card.querySelector('h3').innerText;
+      let precioTexto = card.querySelector('p:last-of-type').innerText;
+      let precio = precioTexto.replace("Precio:", "").trim();
+      let imagen = card.querySelector('img').src;
 
-    carrito.push({nombre, precio, imagen});
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    actualizarCarrito();
-    renderCarrito();
+      carrito.push({nombre, precio, imagen});
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      actualizarCarrito();
+      renderCarrito();
 
-    alert("Añadido al carrito 🛒");
+      alert("Añadido al carrito 🛒");
+    });
   });
-}); // 
 
-// 🛍️ COMPRAR DIRECTO
-document.querySelectorAll('.comprarBtn').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    let card = this.closest('.card');
-    if(card.classList.contains('sold')) return;
+  // 🛍️ COMPRAR DIRECTO (MEJORADO)
+  document.querySelectorAll('.comprarBtn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      let card = this.closest('.card');
+      if(card.classList.contains('sold')) return;
 
-    let nombre = card.querySelector('h3').innerText;
-    let precioTexto = card.querySelectorAll('p')[1].innerText;
-    let precio = precioTexto.replace("Precio:", "").trim();
+      let nombre = card.querySelector('h3').innerText;
+      let precioTexto = card.querySelectorAll('p')[1].innerText;
+      let precio = precioTexto.replace("Precio:", "").trim();
 
-    let mensaje = `Hola, quiero comprar: ${nombre} - ${precio}`;
-    window.open("https://wa.me/51903104561?text=" + encodeURIComponent(mensaje));
+      let mensaje = `Hola Kallpa Sport 👋,
+
+Estoy interesado en este producto:
+
+🛍️ ${nombre}
+💰 ${precio}
+
+¿Sigue disponible?`;
+
+      window.open("https://wa.me/51903104561?text=" + encodeURIComponent(mensaje));
+    });
   });
-});
 
-  // 🪟 ABRIR CARRITO (YA NO WHATSAPP)
+  // 🪟 ABRIR CARRITO
   document.getElementById("verCarrito").addEventListener("click", function() {
     document.getElementById("carritoModal").style.display = "block";
     renderCarrito();
   });
 
 });
-  </script>
+
+</script>
+  
   <div id="carritoModal" style="
 display:none;
 position:fixed;
