@@ -223,21 +223,24 @@ footer {
 .slider {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 250px; /* más espacio */
   overflow: hidden;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slider img {
   position: absolute;
-  width: 100%;
-  height: 200px;
-  object-fit: contain; /* 🔥 CAMBIO CLAVE */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   background: white;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
-
+  
 .slider img.active {
   opacity: 1;
 }
@@ -580,35 +583,42 @@ Cargando Kallpa Sport...
   <!-- Catálogo de Accesorios -->
 <section class="container" id="accesorios">
   <h2 style="text-align:center;">Catálogo de Accesorios</h2>
+  <div class="products">
     
+   <section class="container" id="accesorios">
+  <h2 style="text-align:center;">Catálogo de Accesorios</h2>
+
+  <div class="products"> <!-- 🔥 IMPORTANTE -->
+
     <div class="card sold">
-  <img src="articulo4.jpg">
-  <h3>Mochila Herschel</h3>
-  <p>Unisex / Diseño clásico</p>
-  <p>Precio: S/ 150</p>
-  <a class="btn">Agotado</a>
-</div>
-      
+      <img src="articulo4.jpg">
+      <h3>Mochila Herschel</h3>
+      <p>Unisex / Diseño clásico</p>
+      <p>Precio: S/ 150</p>
+      <a class="btn">Agotado</a>
+    </div>
+
     <div class="card">
       <img src="articulo5.jpg">
       <h3>Rodillera deportiva</h3>
       <p>Unisex / Talla M / En color Blanco y Negro</p>
       <p>Precio: S/ 30</p>
-      <a href="#"class="btn comprarBtn">Comprar</a>
-<a class="btn agregarBtn">Añadir al carrito</a>
+      <a class="btn comprarBtn">Comprar</a>
+      <a class="btn agregarBtn">Añadir al carrito</a>
     </div>
-      
+
     <div class="card">
       <img src="articulo6.jpg">
       <h3>Tobillera deportiva</h3>
       <p>Color: Negro / Talla M / Ajustable</p>
       <p>Precio: S/ 12</p>
-     <a href="#"class="btn comprarBtn">Comprar</a>
+      <a class="btn comprarBtn">Comprar</a>
       <a class="btn agregarBtn">Añadir al carrito</a>
     </div>
-      
-  </div>
-</section>
+
+  </div> 
+</section> 
+    
   <!-- Métodos de Pago -->
 <section class="container" id="pagos">
 <h2 style="text-align:center;">Métodos de Pago</h2>
