@@ -217,7 +217,7 @@ footer {
     width: 90% !important;
   }
 
-}/* ===== SLIDER DE IMÁGENES ===== */
+}/* ===== SLIDER GORRAS ===== */
 .slider {
   position: relative;
   width: 100%;
@@ -406,8 +406,8 @@ Cargando Kallpa Sport...
 <section class="container" id="prendas">
   <h2 style="text-align:center;">Catálogo de Prendas Deportivas/Urbanas</h2>
   <div class="products">
-    
-   <div class="card">
+
+    <div class="card">
       <img src="polos.jpeg">
       <h3>Polos de compresión manga larga</h3>
       <p>Color: Negro / Talla: M</p>
@@ -415,8 +415,8 @@ Cargando Kallpa Sport...
     <a class="btn comprarBtn">Comprar</a>
       <a class="btn agregarBtn">Añadir al carrito</a>
     </div>
-
-     <div class="card">
+    
+   <div class="card">
       <img src="prenda1.jpg">
       <h3>Licra de compresión 3/4 hombre</h3>
       <p>Color: Negro / Talla: M</p>
@@ -499,31 +499,41 @@ Cargando Kallpa Sport...
   </div>
 </section>
 
-  <!-- Catálogo de Gorras -->
-<section class="container" id="gorras">
-  <h2 style="text-align:center;">Catálogo de Gorras New Era</h2>
+  <section class="container" id="gorras">
+
+  <h2 style="text-align:center;">🧢 Gorras New Era Originales</h2>
+  <p style="text-align:center; color:#666;">
+    Modelos exclusivos 🔥 Stock limitado
+  </p>
 
   <div class="products">
 
+    <!-- PRODUCTO 1 -->
     <div class="card">
-      <img src="gorra marrón.jpg">
-      <h3>Gorra New Era New York Coffee Brown Embroidered Fitted</h3>
-      <p>Color: Marrón / Talla: 7 3/8 58,7</p>
+      <div class="slider">
+        <img src="gorra roja.jpeg" class="active">
+        <img src="gorra roja1.jpeg">
+        <img src="gorra roja2.jpeg">
+        <h3>Gorra New era YANKEES</h3>
+      <p>Color: Negro / Black Red Madness / talla 7 3/8 58.7cm</p>
       <p>Precio: S/ 120</p>
-      <a class="btn comprarBtn">Comprar</a>
-      <a class="btn agregarBtn">Añadir al carrito</a>
-    </div>
-
-      <div class="products">
-    <div class="card">
-      <img src="articulo1.jpg">
-      <h3>Gorra New era YANKEES</h3>
-      <p>Color: Negro / cooperstown collection / talla 7 3/8 58.7cm</p>
-      <p>Precio: S/ 100</p>
      <a href="#"class="btn comprarBtn">Comprar</a>
      <a class="btn agregarBtn">Añadir al carrito</a>
-    </div>
-    
+      </div>
+
+      <div class="card">
+      <div class="slider">
+        <img src="gorra godzilla.jpeg" class="active">
+        <img src="gorra godzilla1.jpeg">
+        <img src="gorra godzilla2.jpeg">
+        <img src="gorra godzilla3.jpeg">
+        <h3>Gorra New era YANKEES</h3>
+      <p>Color: Negro / 59FIFTY de New Era Cap Company x godzilla/ t7 1/2   59.6cm</p>
+      <p>Precio: S/ 120</p>
+     <a href="#"class="btn comprarBtn">Comprar</a>
+     <a class="btn agregarBtn">Añadir al carrito</a>
+      </div>
+        
      <div class="card sold">
       <img src="articulo2.jpg">
       <h3>Gorra New era </h3>
@@ -531,8 +541,18 @@ Cargando Kallpa Sport...
       <p>Precio: S/ 100</p>
      <a class="btn">Agotado</a>
     </div>
+    
+    <div class="card">
+      <img src="articulo3.jpg">
+      <h3>Gorra New era</h3>
+      <p>Color: Marrón / 7 3/8 / 58.7cm</p>
+      <p>Precio: S/ 100</p>
+      <a href="#"class="btn comprarBtn">Comprar</a>
+     <a class="btn agregarBtn">Añadir al carrito</a>
+    </div>
   </div>
 </section>
+  
   
   <!-- Catálogo de Accesorios -->
 <section class="container" id="accesorios">
@@ -813,10 +833,9 @@ Estoy interesado en este producto:
     document.getElementById("carritoModal").style.display = "block";
     renderCarrito();
   });
-
-});
-
-  document.querySelectorAll('.slider').forEach(slider => {
+  
+// ===== SLIDER AUTOMÁTICO =====
+document.querySelectorAll('.slider').forEach(slider => {
   let images = slider.querySelectorAll('img');
   let index = 0;
 
@@ -824,7 +843,7 @@ Estoy interesado en este producto:
     images[index].classList.remove('active');
     index = (index + 1) % images.length;
     images[index].classList.add('active');
-  }, 2500); // cambia cada 2.5 segundos
+  }, 2500);
 });
 </script>
   
