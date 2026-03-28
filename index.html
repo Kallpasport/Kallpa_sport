@@ -874,14 +874,17 @@ document.querySelectorAll('.slider').forEach(slider => {
   let images = slider.querySelectorAll('img');
   let index = 0;
 
+  // Mostrar la primera imagen
+  images.forEach(img => img.style.display = "none");
+  images[index].style.display = "block";
+
+  // Cambiar cada 2.5 segundos
   setInterval(() => {
-    images[index].classList.remove('active');
-    index = (index + 1) % images.length;
-    images[index].classList.add('active');
+    images[index].style.display = "none";  // oculta la actual
+    index = (index + 1) % images.length;    // siguiente
+    images[index].style.display = "block";  // mostrar siguiente
   }, 2500);
 });
-
-  }); //
 </script>
   
   <div id="carritoModal" style="
