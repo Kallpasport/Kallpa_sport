@@ -175,8 +175,8 @@ footer {
   background: gray;
   cursor: not-allowed;
 }
-}
-  /* ===== RESPONSIVE PRO (CELULAR) ===== */
+  
+/* ===== RESPONSIVE PRO (CELULAR) ===== */
 @media (max-width: 600px) {
 
   header h1 {
@@ -197,14 +197,17 @@ footer {
   .products {
     grid-template-columns: 1fr;
   }
-.card img {
-  width: 100%;
-  height: 150px;       /* altura uniforme en móviles */
-  object-fit: contain;
-}
+
+  .card img {
+    width: 100%;
+    height: 150px;       /* altura uniforme en móviles */
+    object-fit: contain;
+  }
+
   .slider img {
-  height: 150px;       /* slider proporcional en móvil */
-}
+    height: 150px;       /* slider proporcional en móvil */
+  }
+
   nav a {
     display: block;
     margin: 10px 0;
@@ -213,6 +216,9 @@ footer {
   #buscador {
     width: 90% !important;
   }
+
+}
+  
 
 }/* ===== SLIDER GORRAS ===== */
 /* Contenedor del slider */
