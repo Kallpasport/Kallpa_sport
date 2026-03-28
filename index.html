@@ -222,29 +222,28 @@ footer {
   }
 
 }/* ===== SLIDER GORRAS ===== */
+/* Contenedor del slider */
 .slider {
   position: relative;
   width: 100%;
-  height: 250px; /* altura fija para slider */
+  height: 200px;         /* altura fija para el slider */
   overflow: hidden;
   border-radius: 10px;
-  display: flex;
+  display: flex;          /* centramos la imagen */
   align-items: center;
   justify-content: center;
 }
 
+/* Imágenes del slider */
 .slider img {
-  width: auto;         /* ancho proporcional */
-  height: 200px;       /* altura del slider */
-  max-width: 100%;     /* no excede el ancho del slider */
-  object-fit: contain; 
-  position: absolute;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+  width: 100%;            /* ancho máximo del slider */
+  height: auto;           /* mantiene proporción */
+  object-fit: contain;
+  display: none;          /* ocultamos las demás */
 }
 
 .slider img.active {
-  opacity: 1;
+  display: block;         /* solo se muestra la activa */
 }
   
 </style>
