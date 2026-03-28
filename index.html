@@ -204,10 +204,9 @@ footer {
   .products {
     grid-template-columns: 1fr;
   }
-
 .card img {
-  width: 100%;       /* ocupa todo el ancho de la tarjeta */
-  height: auto;      /* altura proporcional según la imagen */
+  width: 100%;      /* ocupa todo el ancho de la tarjeta */
+  height: auto;     /* altura proporcional */
   object-fit: contain; 
   border-radius: 10px;
   background: white;
@@ -235,9 +234,10 @@ footer {
 }
 
 .slider img {
-  width: 100%;
-  height: 200px;   /* altura uniforme para todas las imágenes del slider */
-  object-fit: contain;
+  width: auto;         /* ancho proporcional */
+  height: 200px;       /* altura del slider */
+  max-width: 100%;     /* no excede el ancho del slider */
+  object-fit: contain; 
   position: absolute;
   opacity: 0;
   transition: opacity 0.5s ease;
