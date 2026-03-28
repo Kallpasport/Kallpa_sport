@@ -206,10 +206,13 @@ footer {
     grid-template-columns: 1fr;
   }
 
- .card img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
+.card img {
+  width: 100%;       /* ocupa todo el ancho del card */
+  height: auto;      /* altura se ajusta según proporción */
+  object-fit: contain; /* mantiene la proporción dentro del contenedor */
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
 }
   nav a {
     display: block;
@@ -224,7 +227,7 @@ footer {
 .slider {
   position: relative;
   width: 100%;
-  height: 250px; /* más espacio */
+  height: 250px; /* altura fija para slider */
   overflow: hidden;
   border-radius: 10px;
   display: flex;
@@ -233,18 +236,18 @@ footer {
 }
 
 .slider img {
+  width: auto;        /* ancho automático según proporción */
+  height: 100%;       /* altura llena el slider */
+  object-fit: contain; /* mantiene proporción */
   position: absolute;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  background: white;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
-  
+
 .slider img.active {
   opacity: 1;
 }
+  
 </style>
 </head>
 <body>
