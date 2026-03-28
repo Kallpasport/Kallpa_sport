@@ -218,25 +218,27 @@ footer {
 }
   
 
-}/* ===== SLIDER GORRAS ===== */
-/* Contenedor del slider */
+/* ===== SLIDER GORRAS ===== */
 .slider {
   position: relative;
   width: 100%;
-  height: 200px;         /* altura fija para el slider */
+  height: 200px; 
   overflow: hidden;
   border-radius: 10px;
-  display: flex;          /* centramos la imagen */
-  align-items: center;
-  justify-content: center;
 }
 
-/* Imágenes del slider */
 .slider img {
+  position: absolute;   /* superpone imágenes */
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 200px;      /* Igual que las tarjetas */
+  height: 100%;
   object-fit: contain;
   display: none;
+}
+
+.slider img.active {
+  display: block;
 }
 
 .slider img.active {
