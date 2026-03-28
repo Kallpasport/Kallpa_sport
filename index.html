@@ -503,7 +503,7 @@ footer {
   </div>
 </section>
 
-  <section class="container" id="gorras">
+ <section class="container" id="gorras">
 
   <h2 style="text-align:center;">🧢 Gorras New Era Originales</h2>
   <p style="text-align:center; color:#666;">
@@ -518,62 +518,64 @@ footer {
         <img src="gorra roja.jpeg" class="active">
         <img src="gorra roja1.jpeg">
         <img src="gorra roja2.jpeg">
-         </div>
-      
-        <h3>Gorra New era YANKEES</h3>
+      </div>
+      <h3>Gorra New era YANKEES</h3>
       <p>Color: Negro / Black Red Madness / talla 7 3/8 58.7cm</p>
       <p>Precio: S/ 120</p>
-     <a href="#"class="btn comprarBtn">Comprar</a>
-     <a class="btn agregarBtn">Añadir al carrito</a>
-      </div>
+      <a href="#" class="btn comprarBtn">Comprar</a>
+      <a class="btn agregarBtn">Añadir al carrito</a>
+    </div>
 
-      <div class="card">
+    <!-- PRODUCTO 2 -->
+    <div class="card">
       <div class="slider">
         <img src="gorra godzilla.jpeg" class="active">
         <img src="gorra godzilla1.jpeg">
         <img src="gorra godzilla2.jpeg">
         <img src="gorra godzilla3.jpeg">
-         </div>
-        
-        <h3>Gorra New era YANKEES</h3>
-      <p>Color: Negro / 59FIFTY de New Era Cap Company x godzilla/ t7 1/2   59.6cm</p>
-      <p>Precio: S/ 120</p>
-     <a href="#"class="btn comprarBtn">Comprar</a>
-     <a class="btn agregarBtn">Añadir al carrito</a>
       </div>
+      <h3>Gorra New era Godzilla</h3>
+      <p>Color: Negro / 59FIFTY de New Era Cap Company x Godzilla / talla 7 1/2 59.6cm</p>
+      <p>Precio: S/ 120</p>
+      <a href="#" class="btn comprarBtn">Comprar</a>
+      <a class="btn agregarBtn">Añadir al carrito</a>
+    </div>
 
-        <div class="card">
+    <!-- PRODUCTO 3 -->
+    <div class="card">
       <div class="slider">
         <img src="gorra llanta.jpeg" class="active">
         <img src="gorra llanta1.jpeg">
         <img src="gorra llanta2.jpeg">
         <img src="gorra llanta3.jpeg">
         <img src="gorra llanta4.jpeg">
-         </div>
-          
-        <h3>Gorra New era YANKEES</h3>
-      <p>Color: Negro / Detroit Tigers State Stitch/ t7 3/8   58.7cm</p>
-      <p>Precio: S/ 120</p>
-     <a href="#"class="btn comprarBtn">Comprar</a>
-     <a class="btn agregarBtn">Añadir al carrito</a>
       </div>
-          
-     <div class="card sold">
+      <h3>Gorra New era Detroit Tigers</h3>
+      <p>Color: Negro / Detroit Tigers State Stitch / talla 7 3/8 58.7cm</p>
+      <p>Precio: S/ 120</p>
+      <a href="#" class="btn comprarBtn">Comprar</a>
+      <a class="btn agregarBtn">Añadir al carrito</a>
+    </div>
+
+    <!-- PRODUCTO 4 (AGOTADO) -->
+    <div class="card sold">
       <img src="articulo2.jpg">
-      <h3>Gorra New era </h3>
+      <h3>Gorra New era</h3>
       <p>Color: Negro / talla 7 1/2 / 59.6cm</p>
       <p>Precio: S/ 100</p>
-     <a class="btn">Agotado</a>
+      <a class="btn">Agotado</a>
     </div>
-    
+
+    <!-- PRODUCTO 5 -->
     <div class="card">
       <img src="articulo3.jpg">
-      <h3>Gorra New era</h3>
+      <h3>Gorra New era Marrón</h3>
       <p>Color: Marrón / 7 3/8 / 58.7cm</p>
       <p>Precio: S/ 100</p>
-      <a href="#"class="btn comprarBtn">Comprar</a>
-     <a class="btn agregarBtn">Añadir al carrito</a>
+      <a href="#" class="btn comprarBtn">Comprar</a>
+      <a class="btn agregarBtn">Añadir al carrito</a>
     </div>
+
   </div>
 </section>
   
@@ -858,20 +860,20 @@ Estoy interesado en este producto:
     renderCarrito();
   });
   
-// ===== SLIDER AUTOMÁTICO =====
+// ===== SLIDER AUTOMÁTICO PARA TODAS LAS GORRAS =====
 document.querySelectorAll('.slider').forEach(slider => {
-  let images = slider.querySelectorAll('img');
+  const images = slider.querySelectorAll('img');
   let index = 0;
 
-  // Mostrar la primera imagen
-  images.forEach(img => img.style.display = "none");
-  images[index].style.display = "block";
+  // Mostrar solo la primera imagen
+  images.forEach(img => img.classList.remove('active'));
+  images[index].classList.add('active');
 
   // Cambiar cada 2.5 segundos
   setInterval(() => {
-    images[index].style.display = "none";  // oculta la actual
-    index = (index + 1) % images.length;    // siguiente
-    images[index].style.display = "block";  // mostrar siguiente
+    images[index].classList.remove('active');
+    index = (index + 1) % images.length;
+    images[index].classList.add('active');
   }, 2500);
 });
 </script>
