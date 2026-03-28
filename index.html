@@ -868,14 +868,14 @@ document.querySelectorAll('.slider').forEach(slider => {
   let index = 0;
 
   // Mostrar solo la primera imagen
-  images.forEach(img => img.classList.remove('active'));
-  images[index].classList.add('active');
+  images.forEach(img => img.style.display = "none");
+  images[index].style.display = "block";
 
   // Cambiar cada 2.5 segundos
   setInterval(() => {
-    images[index].classList.remove('active');
+    images[index].style.display = "none";
     index = (index + 1) % images.length;
-    images[index].classList.add('active');
+    images[index].style.display = "block";
   }, 2500);
 });
 </script>
