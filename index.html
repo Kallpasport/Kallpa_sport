@@ -206,10 +206,17 @@ footer {
     height: 150px;       /* slider proporcional en móvil */
   }
 
-  nav a {
-    display: block;
-    margin: 10px 0;
-  }
+ nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a, nav button {
+  display: inline-block;
+  margin: 5px;
+  font-size: 14px;
+}
 
   #buscador {
     width: 90% !important;
@@ -217,7 +224,6 @@ footer {
 
 }
   
-
 /* ===== SLIDER GORRAS ===== */
 .slider {
   position: relative;
