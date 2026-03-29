@@ -831,7 +831,11 @@ function cerrarCarrito(){
     modal.style.display = "none";
   }
 }
-
+window.eliminar = eliminar;
+window.comprarTodo = comprarTodo;
+window.cerrarCarrito = cerrarCarrito;
+});
+  
 // Cerrar modal al hacer click fuera de él
 window.addEventListener("click", function(e){
   const modal = document.getElementById("carritoModal");
