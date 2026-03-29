@@ -811,10 +811,12 @@ actualizarCarrito();
 renderCarrito();
   // ===== MOSTRAR/CERRAR CARRITO =====
 // Abrir carrito
-document.getElementById("verCarrito").addEventListener("click", function() {
+document.getElementById("verCarrito").addEventListener("click", function(e) {
+  e.preventDefault(); // 🔥 EVITA QUE TE MANDE AL INICIO
+
   const modal = document.getElementById("carritoModal");
   if(modal){
-    modal.style.display = "block"; // mostrar modal
+    modal.style.display = "block";
   } else {
     console.error("No se encontró el modal con id 'carritoModal'");
   }
