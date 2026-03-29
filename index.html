@@ -810,29 +810,31 @@ document.querySelectorAll('.comprarBtn').forEach(btn => {
 actualizarCarrito();
 renderCarrito();
   // ===== MOSTRAR/CERRAR CARRITO =====
-document.getElementById("verCarrito").addEventListener("click", function(e){
-  e.preventDefault(); // evita el comportamiento por defecto del enlace
-  document.getElementById("carritoModal").style.display = "block"; // muestra el modal
+// Abrir carrito
+document.getElementById("verCarrito").addEventListener("click", function() {
+  const modal = document.getElementById("carritoModal");
+  if(modal){
+    modal.style.display = "block"; // mostrar modal
+  } else {
+    console.error("No se encontró el modal con id 'carritoModal'");
+  }
 });
 
+// Cerrar carrito
 function cerrarCarrito(){
-  document.getElementById("carritoModal").style.display = "none"; // oculta el modal
-}
-
-// ===== BOTÓN VOLVER ARRIBA =====
-let topBtn = document.getElementById("topBtn");
-window.onscroll = function() {
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    topBtn.style.display = "block";
-  } else {
-    topBtn.style.display = "none";
+  const modal = document.getElementById("carritoModal");
+  if(modal){
+    modal.style.display = "none";
   }
-};
-
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
 }
+
+// Cerrar modal al hacer click fuera de él
+window.addEventListener("click", function(e){
+  const modal = document.getElementById("carritoModal");
+  if(e.target == modal){
+    modal.style.display = "none";
+  }
+});
 </script>
   
  <div id="carritoModal" style="
