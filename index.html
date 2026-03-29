@@ -704,6 +704,28 @@ WhatsApp
 <!-- Botón Volver Arriba -->
 <button id="topBtn" onclick="topFunction()">↑ Arriba</button>
 
+   <div id="carritoModal" style="
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+z-index:2000;
+width:300px;
+max-height:400px;
+overflow:auto;
+">
+<h3>🛒 Tu carrito</h3>
+<p id="totalCarrito" style="font-weight:bold; margin-top:10px;">Total: S/ 0</p>
+<ul id="listaCarrito"></ul>
+<button onclick="comprarTodo()">Comprar</button>
+<button onclick="cerrarCarrito()">Seguir comprando</button>
+</div>
+  
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 // ===== CARRITO GLOBAL =====
@@ -851,27 +873,6 @@ window.addEventListener("click", function(e){
   }
 });
 </script>
-  
- <div id="carritoModal" style="
-display:none;
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
-z-index:2000;
-width:300px;
-max-height:400px;
-overflow:auto;
-">
-<h3>🛒 Tu carrito</h3>
-<p id="totalCarrito" style="font-weight:bold; margin-top:10px;">Total: S/ 0</p>
-<ul id="listaCarrito"></ul>
-<button onclick="comprarTodo()">Comprar</button>
-<button onclick="cerrarCarrito()">Seguir comprando</button>
-</div>
+
 </body>
 </html>
