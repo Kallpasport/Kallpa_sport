@@ -794,6 +794,7 @@ document.querySelectorAll('.agregarBtn').forEach(btn => {
     carrito.push({nombre, precio, imagen});
     localStorage.setItem("carrito", JSON.stringify(carrito));
     actualizarCarrito();
+    renderCarrito();
     alert("Añadido al carrito 🛒");
   });
 });
