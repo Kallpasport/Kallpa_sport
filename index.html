@@ -231,7 +231,7 @@ nav a, nav button {
   height: 200px;
   overflow: hidden;
   border-radius: 10px;
-  z-index: 1; /* slider por debajo de botones */
+  z-index: 1;
 }
 
 .slider img {
@@ -242,27 +242,24 @@ nav a, nav button {
   height: 100%;
   object-fit: contain;
   display: none;
-  pointer-events: none; /* Permite clics en botones */
+  pointer-events: none;
 }
 
 .slider img.active {
   display: block;
 }
 
-.slider img.active {
-  display: block;         /* solo se muestra la activa */
-}
-  
-/* Todas las imágenes de las tarjetas (productos) */
-.card img {
-  width: 100%;        /* Ocupa todo el ancho de la tarjeta */
-  height: 200px;      /* Altura uniforme para todas las imágenes */
-  object-fit: contain; /* Mantiene proporción sin deformar */
+/* SOLO imágenes normales de productos */
+.card > img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
   border-radius: 10px;
   background: white;
   padding: 10px;
   display: block;
 }
+  
 </style>
 </head>
 <body>
