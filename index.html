@@ -873,7 +873,17 @@ buscador.addEventListener("input", function() {
     }
   });
 });
-  
+  // ===== SLIDER AUTOMÁTICO =====
+document.querySelectorAll('.slider').forEach(slider => {
+  let images = slider.querySelectorAll('img');
+  let index = 0;
+
+  setInterval(() => {
+    images[index].classList.remove('active');
+    index = (index + 1) % images.length;
+    images[index].classList.add('active');
+  }, 2000);
+});
 window.eliminar = eliminar;
 window.comprarTodo = comprarTodo;
 window.cerrarCarrito = cerrarCarrito;
