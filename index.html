@@ -856,6 +856,24 @@ function cerrarCarrito(){
     modal.style.display = "none";
   }
 }
+  // ===== BUSCADOR =====
+const buscador = document.getElementById("buscador");
+
+buscador.addEventListener("input", function() {
+  const filtro = buscador.value.toLowerCase();
+  const productos = document.querySelectorAll(".card");
+
+  productos.forEach(card => {
+    const texto = card.innerText.toLowerCase();
+
+    if(texto.includes(filtro)){
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+  
 window.eliminar = eliminar;
 window.comprarTodo = comprarTodo;
 window.cerrarCarrito = cerrarCarrito;
