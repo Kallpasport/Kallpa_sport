@@ -790,7 +790,7 @@ function renderCarrito() {
   let total = 0;
 
   carrito.forEach((item, index) => {
-    let precioNumero = parseFloat(item.precio.replace("S/", "").trim());
+  let precioNumero = parseFloat(item.precio.replace(/[^\d.]/g, ""));
     total += precioNumero;
 
     let li = document.createElement("li");
