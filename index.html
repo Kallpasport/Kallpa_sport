@@ -828,7 +828,7 @@ function comprarTodo() {
 
   carrito.forEach((item, i) => {
     mensaje += `${i+1}. ${item.nombre} - ${item.precio}\n`;
-    let precioNumero = parseFloat(item.precio.replace("S/", "").trim());
+    let precioNumero = parseFloat(item.precio.replace(/[^\d.]/g, ""));
     total += precioNumero;
   });
 
